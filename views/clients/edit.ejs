@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Éditer client</title></head>
+<body>
+  <% include ../partials/navbar.ejs %>
+  <% include ../partials/messages.ejs %>
+
+  <div class="container">
+    <h3>Éditer client #<%= c.client_id %></h3>
+    <form method="post" action="/clients/<%= c.client_id %>/edit" class="row g-2">
+      <div class="col-6"><label class="form-label">Nom</label><input name="nom" class="form-control" value="<%= c.nom %>" required></div>
+      <div class="col-6"><label class="form-label">Prénom</label><input name="prenom" class="form-control" value="<%= c.prenom %>" required></div>
+      <div class="col-6"><label class="form-label">Email</label><input name="email" type="email" class="form-control" value="<%= c.email %>" required></div>
+      <div class="col-6"><label class="form-label">Téléphone</label><input name="telephone" class="form-control" value="<%= c.telephone %>" required></div>
+      <div class="col-6"><label class="form-label">Nombre de personnes</label><input name="nombre_personnes" type="number" min="1" class="form-control" value="<%= c.nombre_personnes %>"></div>
+      <div class="col-12">
+        <button class="btn btn-primary">Enregistrer</button>
+        <a class="btn btn-secondary" href="/clients">Annuler</a>
+      </div>
+    </form>
+  </div>
+</body></html>

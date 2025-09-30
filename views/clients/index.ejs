@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Clients</title></head>
+<body>
+  <% include ../partials/navbar.ejs %>
+  <% include ../partials/messages.ejs %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h3>Liste des clients</h3>
+        <table class="table table-striped">
+          <thead><tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th># Pers.</th><th></th></tr></thead>
+          <tbody>
+            <% clients.forEach(c => { %>
+              <tr>
+                <td><%= c.client_id %></td>
+                <td><%= c.nom %></td>
+                <td><%= c.prenom %></td>
+                <td><%= c.email %></td>
+                <td><%= c.telephone %></td>
+                <td><%= c.nombre_personnes %></td>
+                <td class="text-nowrap">
+                  <a class="btn btn-sm btn-primary" href="/clients/<%= c.client_id %>/edit">Éditer</a>
+                  <form action="/clients/<%= c.client_id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Supprimer ?')">
+                    <button class="btn btn-sm btn-danger">Supprimer</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-5">
+        <h3>Créer un client</h3>
+        <form method="post" action="/clients" class="row g-2">
+          <div class="col-6"><label class="form-label">Nom</label><input name="nom" class="form-control" required></div>
+          <div class="col-6"><label class="form-label">Prénom</label><input name="prenom" class="form-control" required></div>
+          <div class="col-6"><label class="form-label">Email</label><input name="email" type="email" class="form-control" required></div>
+          <div class="col-6"><label class="form-label">Téléphone</label><input name="telephone" class="form-control" required></div>
+          <div class="col-6"><label class="form-label">Nombre de personnes</label><input name="nombre_personnes" type="number" min="1" value="1" class="form-control"></div>
+          <div class="col-12"><button class="btn btn-success">Ajouter</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body></html>

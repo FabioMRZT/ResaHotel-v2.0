@@ -1,6 +1,4 @@
-Client contrôler 
-
-const Client = require('../models/Client');
+const Client = require('../models/client');
 
 exports.index = async (req, res) => {
   const clients = await Client.findAll();

@@ -1,16 +1,18 @@
-// Importer express
 const express = require('express');
+const path = require('path');
+
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Définir le port (3000 par défaut)
-const PORT = 3000;
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// Route GET sur le chemin "/" (la racine)
-app.get('/', (req, res) => {
-  res.send('Bienvenue sur la page d’accueil !');
-});
+// Navbar de base
+app.get('/', (req, res) => res.redirect('/clients'));
 
-// Lancer le serveur
-app.listen(PORT, () => {
-  console.log(`Serveur démarré sur http://localhost:${PORT}`);
-});
+app.use('/clients', require('./routes/clients'));
+app.use('/reservations', require('./routes/reservations'));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Serveur http://localhost:${PORT}`));
