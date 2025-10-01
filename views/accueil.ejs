@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="/semantic-ui/semantic.min.css">
- <title><%= title %></title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/semantic-ui/semantic.min.css">
+  <title><%= title %></title>
 </head>
 <body>
- <h1><%= title %></h1>
- <p>Ça marche</p>
+  <!-- Menu principal -->
+  <div class="ui menu">
+    <a href="/" class="header item">Accueil</a>
+   <a href="../routes/chambres.js" class="item">Chambres</a>
+
+    <!-- tu peux ajouter d'autres onglets ici -->
+  </div>
+
+  <div class="ui container" style="margin-top:2em">
+    <h1 class="ui header"><%= title %></h1>
+    <p>Ça marche</p>
+  </div>
 </body>
 </html>
