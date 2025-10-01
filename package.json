@@ -1,12 +1,8 @@
 {
-  "name": "ResaHotel-v2.0",
+  "name": "resahotelv2",
   "version": "1.0.0",
   "main": "index.js",
-<<<<<<< HEAD
-  
-=======
   "type" : "module",
->>>>>>> e8ae49397901807e0adff4e87aa82c900c7fed2f
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
