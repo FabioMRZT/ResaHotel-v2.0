@@ -39,11 +39,20 @@ app.get('/', (req, res) => {
  title: 'Hôtel California - Système de Gestion'
  });
 });
+// Routes
+function ttt() {
+    console.log("Chambre")
+}
+import { Chambrerouter } from './routes/chambres.js';
+// import { clientRoutes } from './routes/clients.js';
+app.use('/chambres/', Chambrerouter);
+// app.use('/clients', clientRoutes);
+
 // Gestion des erreurs 404
 app.use((req, res) => {
  res.status(404).render('error', {
- title: 'Page non trouvée',
- error: 'La page demandée n\'existe pas.'
+ title: `Page non trouvée`,
+ error: `La page demandée n\'existe pas :  ${req.originalUrl}`
  });
 });
 app.listen(PORT, () => {
